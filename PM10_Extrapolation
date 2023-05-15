@@ -1,0 +1,19 @@
+'Language: Apache OpenOffice Basic'
+
+'Data1_i: PM10 from Martinique for day i'
+
+'Data2_i: PM10 from Guadeloupe for day i'
+
+'Triple Pi, Hamacher t-norm and average'
+
+=IF(Data1_i>Data2_i; IF( AND(Data1_i<0.5;Data2_i<0.5); (Data1_i*Data2_i)/((Data1_i*Data2_i)+(1-Data1_i)*(1-Data2_i)); Data1_i*Data2_i/(Data1_i+Data2_i - Data1_i*Data2_i) ); AVERAGE(Data1_i;Data2_i) )
+
+
+'Triple Pi, Einstein t-norm and average'
+
+=IF(Data1_i>Data2_i; IF( AND(Data1_i<0.5;Data2_i<0.5); (Data1_i*Data2_i)/((Data1_i*Data2_i)+(1-Data1_i)*(1-Data2_i)); Data1_i*Data2_i/(2-Data1_i-Data2_i+Data1_i*Data2_i) ); AVERAGE(Data1_i;Data2_i) )
+
+
+'Triple Pi, Lukasiewicz t-norm and average'
+
+=IF(Data1_i>Data2_i; IF( AND(Data1_i<0.5;Data2_i<0.5); (Data1_i*Data2_i)/((Data1_i*Data2_i)+(1-Data1_i)*(1-Data2_i)); MAX(Data1_i+Data2_i-1;0) ); AVERAGE(Data1_i;Data2_i) )
